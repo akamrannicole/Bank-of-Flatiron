@@ -3,6 +3,7 @@ import './App.css';
 import SearchBar from './SearchBar';
 import Transaction from './Transaction';
 import TransactionForm from './TransactionForm';
+import TransactionTable from './TransactionTable';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
       <SearchBar/>
       <Transaction/>
       <TransactionForm/>
+      <TransactionTable/>
 
     </div>
   );
