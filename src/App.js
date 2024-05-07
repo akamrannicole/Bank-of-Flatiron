@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import SearchBar from './SearchBar';
 import Transaction from './Transaction';
+import TransactionForm from './TransactionForm';
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
       </header>
       <SearchBar/>
       <Transaction/>
+      <TransactionForm/>
+
     </div>
   );
 }
