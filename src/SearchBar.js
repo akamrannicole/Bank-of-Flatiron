@@ -14,7 +14,7 @@ const SearchBar = ({ onSearch }) => {
         onChange={handleChange}
       />
       <div className="input-group-append">
-        <button className="btn btn-primary" type="button">Search</button>
+        <button className="btn btn-primary" type="button">SEARCH</button>
       </div>
     </div>
   );

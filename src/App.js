@@ -1,32 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
-import SearchBar from './SearchBar';
-import Transaction from './Transaction';
-import TransactionForm from './TransactionForm';
+import React, { useState, useEffect } from 'react';
 import TransactionTable from './TransactionTable';
+import TransactionForm from './TransactionForm';
+import SearchBar from './SearchBar';
 
 function App() {
+  const [transactions, setTransactions] = useState([]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/brianchege2k/bank_of_flatiron/transactions')
+      .then(response => response.json())
+      .then(data => {
+        setTransactions(data);
+        setFilteredTransactions(data);
+      });
+  }, []);
+
+  const handleAddTransaction = formData => {
+    const newTransaction = { id: Date.now(), ...formData };
+    setTransactions([...transactions, newTransaction]);
+    setFilteredTransactions([...filteredTransactions, newTransaction]);
+  };
+
+  const handleSearch = searchTerm => {
+    const filtered = transactions.filter(transaction =>
+      transaction.description.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredTransactions(filtered);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="bg-primary text-white text-center py-4">
+        <h1 className="mb-0">Bank of Flatiron</h1>
       </header>
-      <SearchBar/>
-      <Transaction/>
-      <TransactionForm/>
-      <TransactionTable/>
-
+      <div className="container">
+        <TransactionForm onAddTransaction={handleAddTransaction} />
+        <SearchBar onSearch={handleSearch} />
+        <TransactionTable transactions={filteredTransactions} />
+      </div>
     </div>
   );
 }
