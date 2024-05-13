@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### AUTHOR
+ SHELVIN AKAMURAN 
+
+## DEMO
+https://github.com/akamrannicole/bank-of-flatiron/issues/1#issue-2293211913
+
+### Support and contact details
+email:: akamranshelvin@gmail.com
+
+phone:: +254794242466
+
+### License
+*Licenced under the MIT License Copyright (c) 2024 **SHELVIN AKAMURAN
